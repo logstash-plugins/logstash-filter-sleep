@@ -8,7 +8,6 @@ require "logstash/namespace"
 #
 class LogStash::Filters::Sleep < LogStash::Filters::Base
   config_name "sleep"
-  milestone 1
 
   # The length of time to sleep, in seconds, for every event.
   #
