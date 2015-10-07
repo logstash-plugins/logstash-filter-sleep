@@ -78,7 +78,7 @@ class LogStash::Filters::Sleep < LogStash::Filters::Base
 
   public
   def filter(event)
-    return unless filter?(event)
+    
     @count += 1
 
     case @time
