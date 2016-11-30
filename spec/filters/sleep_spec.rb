@@ -19,7 +19,6 @@ describe LogStash::Filters::Sleep do
   describe "sleep for a given time" do
 
     let(:time) { 5 }
-
     before(:each) do
       subject.register
     end
@@ -30,7 +29,6 @@ describe LogStash::Filters::Sleep do
     end
 
     context "when using every N events" do
-
       let(:messages) { 20 }
       let(:every) { 5 }
       subject { LogStash::Filters::Sleep.new("time" => time, "every" => every ) }
@@ -46,6 +44,15 @@ describe LogStash::Filters::Sleep do
         end
       end
 
+      context "and `every` is given as a string" do
+        let(:every) { "5" }
+        it "should sleep for N seconds and continue" do
+          expect(subject).to receive(:sleep).with(5).exactly(4).times
+          messages.times do
+            subject.filter(event)
+          end
+        end
+      end
     end
   end
 end

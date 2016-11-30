@@ -99,7 +99,7 @@ class LogStash::Filters::Sleep < LogStash::Filters::Base
       end
       @last_clock = clock
     else
-      if @count >= @every
+      if @count >= @every.to_f
         @count = 0
         @logger.debug? && @logger.debug("Sleeping", :delay => time)
         sleep(time)
