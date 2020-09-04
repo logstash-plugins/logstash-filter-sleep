@@ -1,5 +1,5 @@
 ## 3.0.7
-  - Changed Fixnum to Integer [#10](https://github.com/logstash-plugins/logstash-filter-sleep/pull/10)
+  - Changed Fixnum to Integer. Fixnum was deprecated in ruby 2.4. [#10](https://github.com/logstash-plugins/logstash-filter-sleep/pull/10)
 
 ## 3.0.6
   - Update gemspec summary
