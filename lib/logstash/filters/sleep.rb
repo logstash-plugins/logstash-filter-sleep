@@ -82,7 +82,7 @@ class LogStash::Filters::Sleep < LogStash::Filters::Base
     @count += 1
 
     case @time
-      when Fixnum, Float; time = @time
+      when Integer, Float; time = @time
       when nil; # nothing
       else; time = event.sprintf(@time).to_f
     end
